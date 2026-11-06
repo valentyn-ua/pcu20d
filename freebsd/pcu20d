@@ -1,0 +1,27 @@
+#!/bin/sh
+# PROVIDE: pcu20d
+# REQUIRE: LOGIN NETWORKING
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+name="pcu20d"
+rcvar="pcu20d_enable"
+load_rc_config "$name"
+: ${pcu20d_enable:="NO"}
+: ${pcu20d_account:="pcu20"}
+: ${pcu20d_config:="/usr/local/etc/pcu20d.ini"}
+
+pidfile="/var/run/pcu20d/daemon.pid"
+command="/usr/sbin/daemon"
+procname="/usr/sbin/daemon"
+command_args="-R 5 -P ${pidfile} -u ${pcu20d_account} -S -T pcu20d /usr/local/sbin/pcu20d -c ${pcu20d_config}"
+required_files="/usr/local/sbin/pcu20d ${pcu20d_config}"
+start_precmd="pcu20d_prestart"
+
+pcu20d_prestart()
+{
+    install -d -m 0755 -o root -g wheel /var/run/pcu20d
+    su -m "${pcu20d_account}" -c "/usr/local/sbin/pcu20d -c ${pcu20d_config} --check-config"
+}
+
+run_rc_command "$1"
