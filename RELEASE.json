@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "release_date": "2026-11-06",
+  "target": "FreeBSD 13.5-RELEASE amd64",
+  "binary_sha256": "e27392690106c62f3da2f9776a8725a51a0b345cc956fcbda767d49945bafcce",
+  "source_sha256": "ee505b1b9042c1e194fe4e20eac3999deb992348036fc976aa27255515646ce9",
+  "binary_unchanged": true
+}

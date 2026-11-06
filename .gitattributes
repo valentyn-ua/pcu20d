@@ -1,0 +1,6 @@
+* text=auto
+*.c text eol=lf
+*.sh text eol=lf
+*.ini text eol=lf
+Makefile text eol=lf
+freebsd/pcu20d text eol=lf

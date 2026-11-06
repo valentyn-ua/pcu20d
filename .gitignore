@@ -1,0 +1,7 @@
+/pcu20d
+/SHA256SUMS
+*.pcap
+*.pcapng
+*.log
+pcu20d.local.ini
+__pycache__/
